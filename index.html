@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Weeknight Dinners</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a kitchen-board page — week header, a row of five day tabs, one recipe card, then the shopping list. */
+:root {
+  --bg: #f5f6f1;
+  --surface: #ffffff;
+  --ink: #1d2621;
+  --muted: #5d6a62;
+  --line: #dde2d8;
+  --turmeric: #b87a06;
+  --turmeric-soft: #f6ead0;
+  --chilli: #b23a2a;
+  --leaf: #3d7a52;
+  --leaf-soft: #e3efe6;
+  --display: "Young Serif", Georgia, "Times New Roman", serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141a16; --surface: #1d2520; --ink: #e9ede6; --muted: #a2ada5; --line: #2f3a33;
+    --turmeric: #e7ac3a; --turmeric-soft: #3a2f17; --chilli: #f07a66; --leaf: #7cc395; --leaf-soft: #1f3327;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141a16; --surface: #1d2520; --ink: #e9ede6; --muted: #a2ada5; --line: #2f3a33;
+  --turmeric: #e7ac3a; --turmeric-soft: #3a2f17; --chilli: #f07a66; --leaf: #7cc395; --leaf-soft: #1f3327;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px;
+}
+.wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.05rem; font-family: var(--body); font-weight: 700; }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--turmeric); font-weight: 700; }
+header { display: flex; flex-direction: column; gap: 8px; }
+header p { margin: 0; color: var(--muted); max-width: 62ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 6px; font-size: 0.92rem; }
+.facts b { font-variant-numeric: tabular-nums; }
+.savers { margin: 4px 0 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
+
+.days { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.day {
+  font: inherit; cursor: pointer; text-align: left; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; min-width: 0;
+}
+.day .d { font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.day .t { font-size: 0.88rem; line-height: 1.3; overflow-wrap: anywhere; }
+.day[aria-selected="true"] { border-color: var(--turmeric); background: var(--turmeric-soft); }
+.day[aria-selected="true"] .d { color: var(--turmeric); }
+.day:focus-visible, .check input:focus-visible + span { outline: 2px solid var(--turmeric); outline-offset: 2px; }
+@media (max-width: 560px) {
+  .days { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+  .day { padding: 8px 6px; text-align: center; }
+  .day .t { display: none; }
+}
+
+.recipe { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+.recipe .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { font-size: 0.8rem; padding: 3px 10px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); font-variant-numeric: tabular-nums; }
+.pill.cuisine { background: var(--leaf-soft); border-color: transparent; color: var(--leaf); font-weight: 600; }
+.recipe .intro { margin: 0; max-width: 62ch; }
+.cols { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 28px; }
+@media (max-width: 680px) { .cols { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
+.cols ul, .cols ol { margin: 8px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.cols ol li::marker { color: var(--turmeric); font-weight: 700; }
+.callout { border-left: 3px solid var(--leaf); padding: 8px 14px; background: var(--leaf-soft); border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+.callout.warn { border-left-color: var(--chilli); background: transparent; border: 1px solid var(--line); border-left: 3px solid var(--chilli); }
+.callout b { display: block; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+
+section.shop { display: flex; flex-direction: column; gap: 14px; }
+.shop-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.shop-head p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.reset { font: inherit; font-size: 0.85rem; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+.groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 680px) { .groups { grid-template-columns: minmax(0, 1fr); } }
+.group { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; min-width: 0; }
+.group ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; }
+.check { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.group li:first-child .check { border-top: 0; }
+.check input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.check .box { flex: none; width: 18px; height: 18px; margin-top: 3px; border: 1.5px solid var(--muted); border-radius: 5px; display: grid; place-items: center; }
+.check input:checked + .box { background: var(--leaf); border-color: var(--leaf); }
+.check input:checked + .box::after { content: ""; width: 5px; height: 9px; border: solid var(--surface); border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px, -1px); }
+.check .name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.check .price { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; white-space: nowrap; }
+.check input:checked ~ .name { text-decoration: line-through; color: var(--muted); }
+.pantry { font-size: 0.92rem; }
+.tips ul { margin: 8px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; max-width: 70ch; }
+footer { color: var(--muted); font-size: 0.85rem; }
+.error { padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app">
+  <header>
+    <span class="eyebrow">Weeknight dinners · Lidl</span>
+    <h1 id="week">Loading this week's plan</h1>
+    <p id="summary">Five mild weeknight dinners for the family, with a Lidl shopping list.</p>
+  </header>
+</div>
+
+<script>
+(function () {
+  const app = document.getElementById('app');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const store = {
+    get(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+
+  function render(plan) {
+    const ticksKey = 'ticks-' + plan.week_start;
+    let ticks = store.get(ticksKey) || {};
+    const todayIdx = (() => {
+      const d = new Date().getDay(); // 0 Sun..6 Sat
+      const start = new Date(plan.week_start + 'T00:00:00');
+      const now = new Date();
+      return (now >= start && d >= 1 && d <= 5) ? d - 1 : 0;
+    })();
+    let current = todayIdx;
+
+    app.innerHTML = `
+      <header>
+        <span class="eyebrow">Weeknight dinners · Lidl</span>
+        <h1>${esc(plan.week_label)}</h1>
+        <p>${esc(plan.summary)}</p>
+        <div class="facts">
+          <span>Shop total about <b>${esc(plan.budget)}</b></span>
+          <span>${plan.days.length} dinners</span>
+          <span>Serves 2 adults + 1 toddler</span>
+        </div>
+        ${plan.savers && plan.savers.length ? `<ul class="savers">${plan.savers.map(s => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}
+      </header>
+
+      <nav class="days" role="tablist" aria-label="Dinner by day">
+        ${plan.days.map((d, i) => `
+          <button class="day" role="tab" id="tab-${i}" aria-controls="recipe" aria-selected="${i === current}" data-i="${i}">
+            <span class="d">${esc(d.day)}</span><span class="t">${esc(d.title)}</span>
+          </button>`).join('')}
+      </nav>
+
+      <article class="recipe" id="recipe" role="tabpanel"></article>
+
+      <section class="shop" aria-labelledby="shop-h">
+        <div class="shop-head">
+          <h2 id="shop-h">Lidl shopping list</h2>
+          <button class="reset" id="reset" type="button">Clear ticks</button>
+        </div>
+        <p class="shop-note" style="margin:0;color:var(--muted);font-size:.9rem">${esc(plan.price_note || '')}</p>
+        <div class="groups">
+          ${plan.shopping.map((g, gi) => `
+            <div class="group">
+              <h3>${esc(g.group)}</h3>
+              <ul>${g.items.map((it, ii) => {
+                const id = `c-${gi}-${ii}`;
+                return `<li><label class="check" for="${id}">
+                  <input type="checkbox" id="${id}" data-k="${id}" ${ticks[id] ? 'checked' : ''}>
+                  <span class="box" aria-hidden="true"></span>
+                  <span class="name">${esc(it.name)}</span>
+                  ${it.price ? `<span class="price">${esc(it.price)}</span>` : ''}
+                </label></li>`;
+              }).join('')}</ul>
+            </div>`).join('')}
+          <div class="group pantry">
+            <h3>Pantry check</h3>
+            <ul>${(plan.pantry || []).map((p, pi) => {
+              const id = `p-${pi}`;
+              return `<li><label class="check" for="${id}">
+                <input type="checkbox" id="${id}" data-k="${id}" ${ticks[id] ? 'checked' : ''}>
+                <span class="box" aria-hidden="true"></span>
+                <span class="name">${esc(p)}</span>
+              </label></li>`;
+            }).join('')}</ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tips">
+        <h2>Budget & toddler tips</h2>
+        <ul>${(plan.tips || []).map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+      </section>
+
+      <footer>Ticks are saved on this device only.</footer>
+    `;
+
+    const recipeEl = document.getElementById('recipe');
+    function showDay(i) {
+      current = i;
+      const d = plan.days[i];
+      document.querySelectorAll('.day').forEach(b => b.setAttribute('aria-selected', String(+b.dataset.i === i)));
+      recipeEl.setAttribute('aria-labelledby', 'tab-' + i);
+      recipeEl.innerHTML = `
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span class="eyebrow">${esc(d.day)}</span>
+          <h2>${esc(d.title)}</h2>
+          <div class="meta">
+            <span class="pill cuisine">${esc(d.cuisine)}</span>
+            <span class="pill">${esc(d.time)}</span>
+            ${d.cost ? `<span class="pill">about ${esc(d.cost)}</span>` : ''}
+          </div>
+        </div>
+        <p class="intro">${esc(d.intro)}</p>
+        <div class="cols">
+          <div><h3>Ingredients</h3><ul>${d.ingredients.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
+          <div><h3>Method</h3><ol>${d.method.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div>
+        </div>
+        ${d.toddler ? `<div class="callout"><b>For the toddler</b>${esc(d.toddler)}</div>` : ''}
+        ${d.note ? `<div class="callout warn"><b>Good to know</b>${esc(d.note)}</div>` : ''}
+      `;
+    }
+    document.querySelectorAll('.day').forEach(b => b.addEventListener('click', () => showDay(+b.dataset.i)));
+    document.querySelector('.days').addEventListener('keydown', e => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const n = plan.days.length;
+      const next = (current + (e.key === 'ArrowRight' ? 1 : n - 1)) % n;
+      showDay(next); document.getElementById('tab-' + next).focus();
+    });
+    showDay(current);
+
+    app.addEventListener('change', e => {
+      const k = e.target.dataset && e.target.dataset.k;
+      if (!k) return;
+      ticks[k] = e.target.checked; store.set(ticksKey, ticks);
+    });
+    document.getElementById('reset').addEventListener('click', () => {
+      ticks = {}; store.set(ticksKey, ticks);
+      app.querySelectorAll('input[type=checkbox]').forEach(c => { c.checked = false; });
+    });
+  }
+
+  fetch('plan.json', { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(() => {
+      app.insertAdjacentHTML('beforeend', '<div class="error">This week\'s plan could not be loaded. Reload the page to try again.</div>');
+    });
+})();
+</script>
+</body>
+</html>

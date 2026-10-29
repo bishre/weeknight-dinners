@@ -1,0 +1,191 @@
+{
+  "week_start": "2026-11-02",
+  "week_label": "Mon 2 – Fri 6 November 2026",
+  "budget": "€35–40",
+  "summary": "Five mild weeknight dinners for 2 adults and a 2-year-old, all from one Lidl shop. Adults add chilli at the table.",
+  "savers": [
+    "Tuesday's rice is cooked double, so Wednesday is a 20-minute dinner.",
+    "One 1 kg chicken pack covers Tuesday and Friday: freeze half on Tuesday, thaw in the fridge Thursday night."
+  ],
+  "days": [
+    {
+      "day": "Mon",
+      "title": "Dal bhat with spinach tarkari",
+      "cuisine": "Nepali",
+      "time": "35 min",
+      "cost": "€4–5",
+      "intro": "The cheapest night of the week: lentils, rice and frozen spinach.",
+      "ingredients": [
+        "250 g red lentils",
+        "300 g basmati rice",
+        "1 onion, 2 garlic cloves, 2 cm ginger",
+        "1 tomato (or 2 tbsp passata)",
+        "1 tsp turmeric, 1 tsp cumin seeds (or ground cumin)",
+        "2 tbsp butter or oil",
+        "300 g frozen chopped spinach",
+        "Salt, lemon to serve"
+      ],
+      "method": [
+        "Rinse lentils and simmer in 900 ml water with turmeric for 20 min until soft; whisk smooth.",
+        "Meanwhile cook the rice.",
+        "Fry cumin seeds in butter 30 seconds, add chopped onion, garlic and ginger, cook 5 min; add tomato and cook 3 min. Pour half of this tadka into the dal.",
+        "Add the frozen spinach to the remaining tadka and cook 5–6 min until fairly dry. That's the tarkari.",
+        "Serve the toddler's portion, then salt the adults' dal and add chilli or achar."
+      ],
+      "toddler": "Dal mixed into rice is an easy spoon food; a small knob of butter on top makes it extra appealing."
+    },
+    {
+      "day": "Tue",
+      "title": "Mild chicken & coconut curry with rice",
+      "cuisine": "Indian",
+      "time": "35 min",
+      "cost": "€8–9",
+      "intro": "A korma-style curry toddlers usually love. Cook double rice tonight and refrigerate half for Wednesday.",
+      "ingredients": [
+        "500 g plain chicken breast fillet (half of a 1 kg pack; freeze the rest for Friday)",
+        "600 g basmati rice (half for tomorrow)",
+        "1 onion, 3 garlic cloves, 3 cm ginger",
+        "200 g passata or ½ can chopped tomatoes",
+        "1 can (400 ml) coconut milk",
+        "2 tsp garam masala (or mild curry powder), 1 tsp turmeric, 1 tsp ground cumin, 1 tsp ground coriander",
+        "2 tbsp oil, salt",
+        "Optional: frozen peas or cubed potato to stretch it"
+      ],
+      "method": [
+        "Cut chicken into small bite-size pieces.",
+        "Fry onion in oil 6–8 min until soft and golden; add garlic, ginger and ground spices for 1 min.",
+        "Add passata, cook 3 min, then the chicken; stir until no longer pink outside.",
+        "Pour in coconut milk and simmer 12–15 min until the chicken is cooked through.",
+        "Cook the rice. Spread the spare half on a plate to cool quickly, then refrigerate within an hour.",
+        "Serve the toddler's portion before seasoning; adults add salt, chilli and fresh coriander."
+      ],
+      "toddler": "Shred a few chicken pieces with a fork for easier chewing."
+    },
+    {
+      "day": "Wed",
+      "title": "Egg fried rice with peas & carrot",
+      "cuisine": "Chinese",
+      "time": "20 min",
+      "cost": "€3",
+      "intro": "The quick night. Cold leftover rice from Tuesday fries best.",
+      "ingredients": [
+        "Tuesday's leftover cooked rice (about 900 g cooked)",
+        "4 eggs",
+        "200 g frozen peas, 1 carrot (or 300 g frozen mixed veg)",
+        "2 spring onions or ½ leek",
+        "2 garlic cloves",
+        "2 tbsp soy sauce, 1 tsp sesame oil (optional)",
+        "2 tbsp oil"
+      ],
+      "method": [
+        "Break up the cold rice with your fingers so there are no clumps.",
+        "Beat the eggs; scramble softly in a hot wok or large pan with 1 tbsp oil, then tip out.",
+        "Add the rest of the oil, fry diced carrot 3 min, then garlic, white part of spring onion and peas 2 min.",
+        "Add the rice and fry on high heat 4–5 min, pressing it against the pan.",
+        "Return the eggs and add spring onion greens. Take out the toddler's portion, then add soy sauce and sesame oil for the adults."
+      ],
+      "toddler": "Give the toddler's portion just a few drops of soy sauce; regular soy sauce is very salty for a 2-year-old.",
+      "note": "Food safety: only reheat rice that was cooled fast and refrigerated. Use it within 1 day and reheat until piping hot."
+    },
+    {
+      "day": "Thu",
+      "title": "Keema matar with flatbread",
+      "cuisine": "Indian / Nepali",
+      "time": "30 min",
+      "cost": "€6–7",
+      "intro": "Spiced chicken mince with peas and potato, scooped up with warm flatbread. The potato stretches 400 g of mince to feed everyone.",
+      "ingredients": [
+        "400 g chicken mince (broilerin jauheliha)",
+        "2 medium potatoes, diced small",
+        "200 g frozen peas",
+        "1 onion, 3 garlic cloves, 3 cm ginger",
+        "200 g passata or ½ can chopped tomatoes",
+        "2 tsp garam masala (or mild curry powder), 1 tsp cumin, 1 tsp turmeric",
+        "2 tbsp natural yoghurt (optional, makes it creamier)",
+        "1 pack tortilla wraps or pita breads, or rice"
+      ],
+      "method": [
+        "Brown the chicken mince in 1 tbsp oil for 5 min, breaking it up finely.",
+        "Add onion and cook 5 min, then garlic, ginger and spices for 1 min.",
+        "Add potato, passata and 150 ml water. Cover and simmer 15 min until the potato is soft.",
+        "Stir in peas for the last 3 min and the yoghurt off the heat.",
+        "Warm the flatbreads in a dry pan. Serve the toddler first, then season the rest."
+      ],
+      "toddler": "Fine mince with soft potato is easy to chew; roll some into a small wrap for a hand-held dinner."
+    },
+    {
+      "day": "Fri",
+      "title": "Nepali-style chicken chow mein",
+      "cuisine": "Nepali / Chinese",
+      "time": "25 min",
+      "cost": "€7–8",
+      "intro": "Kathmandu street-style noodles with chicken and plenty of cabbage, using the second half of Tuesday's chicken.",
+      "ingredients": [
+        "500 g chicken breast fillet, thinly sliced (thawed overnight in the fridge)",
+        "250–300 g egg noodles (or spaghetti)",
+        "¼ white cabbage, finely shredded",
+        "1 carrot, 1 onion, 1 bell pepper (optional)",
+        "3 garlic cloves, 2 cm ginger",
+        "3 tbsp soy sauce, 1 tbsp ketchup, ½ tsp turmeric or curry powder",
+        "2 tbsp oil"
+      ],
+      "method": [
+        "Mix the chicken with 1 tbsp soy sauce, garlic and ginger; leave 10 min.",
+        "Cook the noodles 1 min less than the pack says; drain and toss with a little oil.",
+        "Stir-fry the chicken in a hot pan 4–5 min until cooked; tip out.",
+        "Stir-fry onion, carrot, pepper and cabbage 4 min, keeping some crunch.",
+        "Add noodles, chicken, turmeric, ketchup and the rest of the soy sauce; toss 2 min.",
+        "Take out the toddler's portion before the last soy sauce; adults add chilli sauce at the table."
+      ],
+      "toddler": "Snip the noodles into short lengths with kitchen scissors."
+    }
+  ],
+  "shopping": [
+    { "group": "Meat & eggs", "items": [
+      { "name": "Chicken breast fillet, plain (broilerin rintafilee, maustamaton), 1 kg", "price": "€9–11" },
+      { "name": "Chicken mince (broilerin jauheliha), 400 g", "price": "€3–4" },
+      { "name": "Eggs, 10-pack", "price": "€2.50" }
+    ]},
+    { "group": "Fruit & veg", "items": [
+      { "name": "Onions, 1 kg bag", "price": "€1" },
+      { "name": "Garlic, 1 net", "price": "€1" },
+      { "name": "Fresh ginger, 1 piece", "price": "€1" },
+      { "name": "Carrots, 1 kg", "price": "€1" },
+      { "name": "Potatoes, 1 kg", "price": "€1" },
+      { "name": "White cabbage, 1 small", "price": "€1" },
+      { "name": "Spring onions or 1 leek", "price": "€1" },
+      { "name": "1 tomato and 1 lemon", "price": "€1" }
+    ]},
+    { "group": "Frozen", "items": [
+      { "name": "Frozen peas (herneet), 1 kg", "price": "€2" },
+      { "name": "Frozen chopped spinach (pinaatti), about 450 g", "price": "€1.50" }
+    ]},
+    { "group": "Dry & tins", "items": [
+      { "name": "Basmati rice, 1 kg", "price": "€2.50–3" },
+      { "name": "Red lentils (punaiset linssit), 500 g", "price": "€2" },
+      { "name": "Coconut milk, 400 ml", "price": "€1.30" },
+      { "name": "Passata or chopped tomatoes, 500 g", "price": "€1" },
+      { "name": "Egg noodles, 250 g (or spaghetti)", "price": "€1.50" },
+      { "name": "Tortilla wraps or pita, 1 pack", "price": "€1.50" }
+    ]},
+    { "group": "Dairy", "items": [
+      { "name": "Natural yoghurt (maustamaton jogurtti), small tub", "price": "€1" },
+      { "name": "Butter, if not already at home", "price": "" }
+    ]}
+  ],
+  "pantry": [
+    "Turmeric, ground cumin or cumin seeds, ground coriander",
+    "Garam masala or mild curry powder",
+    "Soy sauce, sesame oil (optional), ketchup",
+    "Rapeseed oil, salt"
+  ],
+  "tips": [
+    "Swap protein to price: if boneless chicken thighs are on offer, use them instead of breast.",
+    "Extra dal freezes well in small portions for the toddler's lunches.",
+    "Spices last for months, so after the first week the pantry cost drops to almost nothing.",
+    "Season the pot lightly; a 2-year-old needs far less salt than adults.",
+    "Keep chilli flakes or chilli sauce on the table instead of in the pot.",
+    "Halve round foods like cherry tomatoes and keep whole spices out of the toddler's bowl."
+  ],
+  "price_note": "Prices are approximate estimates, not checked against current shelf prices. Check the Lidl Plus app for this week's offers."
+}
